@@ -36,6 +36,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/", (req, res, next) => {
+  res.json({ message: "hello first deployment" });
+  next();
+});
+
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/superAdmin", superAdminRoutes);
