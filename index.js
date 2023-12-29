@@ -29,17 +29,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", (req, res, next) => {
-  res.json({ message: "hello first deployment" });
-  next();
-});
-
 app.use(postDataRoutes);
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/superAdmin", superAdminRoutes);
 app.use("/user", userRoutes);
 app.use("/db", databaseRoutes);
+
+app.use("/", (req, res, next) => {
+  res.json({ message: "hello first deployment" });
+  next();
+});
 
 app.use((error, req, res, next) => {
   console.log(error);
