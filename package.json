@@ -2,10 +2,11 @@
   "name": "db-p",
   "version": "1.0.0",
   "description": "final project",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "Ali Hassan",
   "license": "ISC",
   "dependencies": {
@@ -17,8 +18,5 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "validator": "^13.11.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
   }
 }
