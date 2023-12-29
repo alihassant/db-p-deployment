@@ -55,7 +55,7 @@ mongoose
   .connect("mongodb+srv://ali:alihassan5@cluster0.8vsqbst.mongodb.net/db-p")
   .then(() => {
     console.log("DB Connected!!");
-    app.listen(SERVER_PORT, () => {
+    app.listen(process.env.PORT || SERVER_PORT, () => {
       console.log(`Live at port ${SERVER_PORT}`);
     });
   })
