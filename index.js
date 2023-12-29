@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 
 const express = require("express");
-const morgan = require("morgan");
 
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -17,12 +16,6 @@ const databaseRoutes = require("./routes/datebase");
 const SERVER_PORT = 8080;
 
 const app = express();
-
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, "access.log"),
-  { flags: "a" }
-);
-app.use(morgan("combined", { stream: accessLogStream }));
 
 app.use(bodyParser.json());
 
