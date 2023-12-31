@@ -40,7 +40,7 @@ exports.getUsers = async (req, res, next) => {
 };
 
 exports.getPosts = async (req, res, next) => {
-  const { dbId } = req.body;
+  const { dbId } = req.params;
   try {
     const db = await Database.findById(dbId).populate("posts");
 
@@ -55,3 +55,4 @@ exports.getPosts = async (req, res, next) => {
     next(err);
   }
 };
+

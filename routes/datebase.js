@@ -13,7 +13,7 @@ router.get("/getUsers", dbUserController.getUsers);
 
 router.post("/removeUser", dbAdminController.removeUser);
 
-router.get("/getPosts", dbUserController.getPosts);
+router.get("/getPosts/:dbId", dbUserController.getPosts);
 
 // router.post("/editUser", userController.editUser);
 

@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 const User = require("../models/user");
 const Post = require("../models/postData");
+const Database = require("../models/database");
 
 const generalPromiseError = (err) => {
   if (!err.statusCode) {
@@ -80,6 +81,26 @@ exports.userPosts = async (req, res, next) => {
     res.status(200).json({
       message: "User's Posts Found Successfully!!!",
       posts,
+    });
+  } catch (err) {
+    generalPromiseError(err);
+    next(err);
+  }
+};
+
+// getting/showing the databases the user is in
+exports.getDatabases = async (req, res, next) => {
+  const { userId } = req.body;
+  try {
+    const user = await User.findById(userId).populate("databases");
+    const dbs = user.databases;
+    if (dbs.length === 0) {
+      errorMessageStatus("No Database Found!!!", 404);
+    }
+
+    res.status(200).json({
+      message: "Databases Fetched Successfully!!!",
+      dbs,
     });
   } catch (err) {
     generalPromiseError(err);
