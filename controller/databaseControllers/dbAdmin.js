@@ -66,7 +66,10 @@ exports.createDatabase = async (req, res, next) => {
 
     // Pushing the database ID to the user model
 
-    user.databases.push(result._id);
+    user.databases.push({
+      dbId: result._id,
+      dbRole: "owner",
+    });
     await user.save();
 
     // Sending the response to the client
@@ -121,7 +124,10 @@ exports.addNewMember = async (req, res, next) => {
     });
 
     // Update the user model with the database ID
-    userToAdd.databases.push(database._id);
+    userToAdd.databases.push({
+      dbId: database._id,
+      dbRole: role,
+    });
     await userToAdd.save();
 
     // Save the updated database

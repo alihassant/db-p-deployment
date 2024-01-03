@@ -34,8 +34,13 @@ const userSchema = new Schema(
     ],
     databases: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Database",
+        dbId: {
+          type: Schema.Types.ObjectId,
+          ref: "Database",
+        },
+        dbRole: {
+          type: String,
+        },
       },
     ],
   },

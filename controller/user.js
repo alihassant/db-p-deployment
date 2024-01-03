@@ -92,7 +92,7 @@ exports.userPosts = async (req, res, next) => {
 exports.getDatabases = async (req, res, next) => {
   const { userId } = req.body;
   try {
-    const user = await User.findById(userId).populate("databases");
+    const user = await User.findById(userId);
     const dbs = user.databases;
     if (dbs.length === 0) {
       errorMessageStatus("No Database Found!!!", 404);
